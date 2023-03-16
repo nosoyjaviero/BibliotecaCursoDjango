@@ -2,6 +2,9 @@ from .base import *
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+DEBUG = True
+
+ALLOWED_HOSTS = []
 
 
 
@@ -18,11 +21,11 @@ DATABASES = {
 STATIC_URL = '/static/'
 
 static = BASE_DIR.child('static')
-css = static.child('css')
-img = static.child('img')
-js = static.child('js')
+# css = static.child('css')
+# img = static.child('img')
+# js = static.child('js')
 
-STATICFILES_DIRS = [static, css,img, js,]
+STATICFILES_DIRS = [static,]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
