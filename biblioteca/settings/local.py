@@ -12,8 +12,12 @@ DB_FILE = BASE_DIR.child('db.sqlite3')
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': DB_FILE,
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dbbiblioteca',
+        'USER':'neunapp',
+        'PASSWORD':'123',
+        'HOST':'localhost',
+        'PORT':'5432',  
     }
 }
 

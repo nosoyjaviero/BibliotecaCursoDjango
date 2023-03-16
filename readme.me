@@ -1,0 +1,39 @@
+Creamos la configuracion de base de datos dentro de settings
+Creamos la base de datos en psotgree. Para eso:
+
+EJECUTAMOS  SQLSHELL 
+Server [localhost]: DEJAR VACIO 
+Database [postgres]:DEJAR VACIO 
+Port [5432]: DEJAR VACIO 
+Username [postgres]: DEJAR VACIO 
+Password for user postgres: 123
+psql (15.1)
+WARNING: Console code page (850) differs from Windows code page (1252)
+         8-bit characters might not work correctly. See psql reference
+         page "Notes for Windows users" for details.
+Type "help" for help.
+
+postgres=# CREATE DATABASE dbempleado;
+CREATE DATABASE
+postgres=# CREATE USER neunapp;
+CREATE ROLE
+postgres=# \C dbempleado;
+Title is "dbempleado".
+postgres=# \c dbempleado;
+You are now connected to database "dbempleado" as user "postgres".
+dbempleado=# ALTER ROLE neunapp WITH PASSWORD '123'
+dbempleado-# ;
+ALTER ROLE
+dbempleado=#
+
+
+ahora debemos instalar 
+pip install psycopg2 
+
+esto para que el codigo python se transforme en codigo sql de postgress
+
+ejecutar las migraciones 
+ py manage.py migrate
+
+finalmente ejecutamos el comando 
+py manage.py createsuperuser
