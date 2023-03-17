@@ -68,3 +68,10 @@ finalmente añadimos el codigo al html, mostrando el objeto
 Esto funciona, pero no es lo adecuado.
 Para eso... Vamos a crear un archivo managers.py donde solo podremos llamar exclusivamente a nuestro modelo
 
+La principal diferencia entre "return Autor.objects.all()" y "return self.all()" es que el primero devuelve todos los objetos del modelo "Autor" utilizando el Manager predeterminado de Django para ese modelo, mientras que el segundo utiliza un Manager personalizado llamado "AutorManager" definido en la clase "AutorManager".
+
+Cuando se utiliza "return Autor.objects.all()", se está utilizando el Manager predeterminado de Django para el modelo "Autor". Este Manager predeterminado tiene una serie de métodos útiles, como "all()", que devuelve una lista de todos los objetos del modelo. En este caso, "Autor.objects.all()" devolvería una lista de todos los objetos del modelo "Autor".
+
+Por otro lado, cuando se utiliza "return self.all()", se está utilizando un Manager personalizado llamado "AutorManager" que ha sido definido en la clase "AutorManager". Este Manager personalizado también tiene un método "all()" que devuelve una lista de todos los objetos del modelo, pero ha sido definido específicamente para añadir funcionalidades adicionales o personalizar el comportamiento del modelo "Autor".
+
+En resumen, "return Autor.objects.all()" utiliza el Manager predeterminado de Django para el modelo "Autor", mientras que "return self.all()" utiliza un Manager personalizado definido en la clase "AutorManager" que puede tener funcionalidades adicionales o personalizadas.

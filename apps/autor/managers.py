@@ -11,5 +11,6 @@ class AutorManager(models.Manager):
     
     """
     
-    def listar_autores(self):        
+    def listar_autores(self):
+        #mientras que el segundo utiliza un Manager personalizado llamado "AutorManager" definido en la clase "AutorManager".        
         return self.all()

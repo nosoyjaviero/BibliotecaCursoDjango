@@ -11,5 +11,6 @@ class ListAutores(ListView):
     context_object_name= 'lista_autores'
     
     def get_queryset(self):
+        #devuelve todos los objetos del modelo "Autor" utilizando el Manager predeterminado de Django para ese modelo        
         return Autor.objects.all()
     
