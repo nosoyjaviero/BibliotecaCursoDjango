@@ -75,3 +75,5 @@ Cuando se utiliza "return Autor.objects.all()", se está utilizando el Manager p
 Por otro lado, cuando se utiliza "return self.all()", se está utilizando un Manager personalizado llamado "AutorManager" que ha sido definido en la clase "AutorManager". Este Manager personalizado también tiene un método "all()" que devuelve una lista de todos los objetos del modelo, pero ha sido definido específicamente para añadir funcionalidades adicionales o personalizar el comportamiento del modelo "Autor".
 
 En resumen, "return Autor.objects.all()" utiliza el Manager predeterminado de Django para el modelo "Autor", mientras que "return self.all()" utiliza un Manager personalizado definido en la clase "AutorManager" que puede tener funcionalidades adicionales o personalizadas.
+
+Esta funcion sirve para buscar en el search tambien en apellido, el or en base de datos usando python debe llevar la Q para que la base de datos detecte la consulta

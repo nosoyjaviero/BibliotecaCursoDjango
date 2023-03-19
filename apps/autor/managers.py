@@ -1,5 +1,6 @@
 #llamamos al modelo
 from django.db import models
+from django.db.models import Q
 
 class AutorManager(models.Manager):
     """managers para el moelo autor
@@ -21,6 +22,6 @@ class AutorManager(models.Manager):
     def buscar_autores2(self, kword):
         #mientras que el segundo utiliza un Manager personalizado llamado "AutorManager" definido en la clase "AutorManager".        
         nombres = self.filter(
-            nombre__icontains=kword
+            Q(nombre__icontains=kword) or Q(nombre__icontains=kword)
         )
         return nombres
