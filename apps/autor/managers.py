@@ -25,3 +25,17 @@ class AutorManager(models.Manager):
             Q(nombre__icontains=kword) or Q(nombre__icontains=kword)
         )
         return nombres
+    
+    def buscar_autores2(self, kword):
+        #mientras que el segundo utiliza un Manager personalizado llamado "AutorManager" definido en la clase "AutorManager".        
+        nombres = self.filter(
+            Q(nombre__icontains=kword) or Q(nombre__icontains=kword)
+        )
+        return nombres
+    
+    #excluye de la lista a los que tengan 
+    def buscar_autores3(self, kword):
+        nombres = self.filter(
+            nombre__icontains=kword
+        ).exclude(edad=26)
+        return nombres

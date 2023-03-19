@@ -13,5 +13,5 @@ class ListAutores(ListView):
     def get_queryset(self):
         #devuelve todos los objetos del modelo "Autor" utilizando el Manager predeterminado de Django para ese modelo 
         palabra= self.request.GET.get( "kword", "")               
-        return Autor.objects.buscar_autores2(palabra)
+        return Autor.objects.buscar_autores3(palabra)
     
