@@ -37,5 +37,7 @@ class AutorManager(models.Manager):
     def buscar_autores3(self, kword):
         nombres = self.filter(
             nombre__icontains=kword
-        ).exclude(edad=26)
+        ).exclude(
+            Q(edad=26) | Q(edad=50)
+              )
         return nombres
