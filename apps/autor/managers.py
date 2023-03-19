@@ -11,6 +11,9 @@ class AutorManager(models.Manager):
     
     """
     
-    def listar_autores(self):
+    def buscar_autores(self, kword):
         #mientras que el segundo utiliza un Manager personalizado llamado "AutorManager" definido en la clase "AutorManager".        
-        return self.all()
+        nombres = self.filter(
+            nombre__icontains=kword
+        )
+        return nombres

@@ -2,6 +2,14 @@
 
 <h1>Lista Autores</h1>
 
+<div>
+    <form method="GET">{% csrf_token %}
+             <input type="text" id="kword" name="kword" placeholder="Buscar" class="form-control"> 
+            <button type="submit">Enviar</button>        
+    </form>
+</div>
+
+
 <ul>
     {% for autor in lista_autores %}
     <p>{{autor.nombre}}</p>

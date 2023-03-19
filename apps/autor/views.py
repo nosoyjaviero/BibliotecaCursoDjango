@@ -11,6 +11,7 @@ class ListAutores(ListView):
     context_object_name= 'lista_autores'
     
     def get_queryset(self):
-        #devuelve todos los objetos del modelo "Autor" utilizando el Manager predeterminado de Django para ese modelo        
-        return Autor.objects.listar_autores()
+        #devuelve todos los objetos del modelo "Autor" utilizando el Manager predeterminado de Django para ese modelo 
+        palabra= self.request.GET.get( "kword", "")               
+        return Autor.objects.buscar_autores(palabra)
     
