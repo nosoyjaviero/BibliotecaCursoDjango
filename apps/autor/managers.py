@@ -17,3 +17,10 @@ class AutorManager(models.Manager):
             nombre__icontains=kword
         )
         return nombres
+    
+    def buscar_autores2(self, kword):
+        #mientras que el segundo utiliza un Manager personalizado llamado "AutorManager" definido en la clase "AutorManager".        
+        nombres = self.filter(
+            nombre__icontains=kword
+        )
+        return nombres
