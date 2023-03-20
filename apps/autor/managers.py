@@ -46,5 +46,5 @@ class AutorManager(models.Manager):
         nombres = self.filter(
             edad__gt=40, #con la coma creamos un and
             edad__lt=59
-        )
+        ).order_by('apellidos', 'nombre', 'id')
         return nombres
