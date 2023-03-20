@@ -38,12 +38,13 @@ class AutorManager(models.Manager):
         nombres = self.filter(
             nombre__icontains=kword
         ).exclude(
-            Q(edad=26) | Q(edad=50)
+            Q(edad=26) | Q(edad=50) #a diferiencia del or 
               )
         return nombres
     
     def buscar_autores4(self, kword):
         nombres = self.filter(
-            edad__gt=40
+            edad__gt=40, #con la coma creamos un and
+            edad__lt=59
         )
         return nombres
