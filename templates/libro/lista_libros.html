@@ -4,7 +4,11 @@
 
 <div>
     <form method="GET">{% csrf_token %}
-             <input type="text" id="kword" name="kword" placeholder="Buscar" class="form-control"> 
+             <input type="text" id="kword" name="kword" placeholder="Buscar" class="form-control">
+
+             <input type="date" id="date1" name="date1" placeholder="" class="form-control">
+             <input type="date" id="date2" name="date2" placeholder="" class="form-control">
+
             <button type="submit">Enviar</button>        
     </form>
 </div>
