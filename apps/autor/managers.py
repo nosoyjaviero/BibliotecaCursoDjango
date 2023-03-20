@@ -41,3 +41,9 @@ class AutorManager(models.Manager):
             Q(edad=26) | Q(edad=50)
               )
         return nombres
+    
+    def buscar_autores4(self, kword):
+        nombres = self.filter(
+            edad__gt=40
+        )
+        return nombres
