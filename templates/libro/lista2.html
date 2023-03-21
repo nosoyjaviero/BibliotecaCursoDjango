@@ -1,0 +1,11 @@
+
+
+<h1>Lista Libros</h1>
+
+
+<ul>
+
+    {% for libro in lista_libros %}
+    <li>{{libro.titulo}} {{libro.fecha_lanzamiento}}</li>
+    {% endfor %}
+</ul>

@@ -6,7 +6,7 @@ from .managers import LibroManager
 class Categoria(models.Model):
     nombre =models.CharField("", max_length=50)
     def __str__(self):
-        return self.nombre 
+        return str(self.id) + " " +self.nombre 
 
     
 class Libro(models.Model):
