@@ -81,3 +81,17 @@ Esta funcion sirve para buscar en el search tambien en apellido, el or en base d
 Al alterar los modelos hay que 
 py manage.py makemigrations
 py manage.py migrate
+
+No se haran pruebas esta vez en el navegador, utilizaremos la terminal y llamaremos a la shell de python
+
+py manage.py shell
+from apps.libro.models import * 
+Categoria.objects.categoria_por_autor('1'). 
+
+Nota: Devuelve 
+>>> from apps.libro.models import *         
+>>> Categoria.objects.categoria_por_autor('1') 
+<QuerySet [<Categoria: 4 Ciencia>, <Categoria: 4 Ciencia>]>
+>>> Categoria.objects.categoria_por_autor('2') 
+<QuerySet [<Categoria: 6 Romance>, <Categoria: 6 Romance>, <Categoria: 6 Romance>]>
+>>>

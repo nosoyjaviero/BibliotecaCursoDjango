@@ -36,3 +36,9 @@ class CategoriaManager(models.Manager):
     """managers para el modelo Categoria
     
     """
+    def categoria_por_autor(self, autor):
+        
+        return self.filter(
+            categoria_libro__autores__id=autor
+        )
+    
