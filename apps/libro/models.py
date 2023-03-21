@@ -1,10 +1,12 @@
 from django.db import models
 from  apps.autor.models import Autor
-from .managers import LibroManager
+from .managers import LibroManager, CategoriaManager
 # Create your models here.
     
 class Categoria(models.Model):
     nombre =models.CharField("", max_length=50)
+    
+    objects= CategoriaManager()
     def __str__(self):
         return str(self.id) + " " +self.nombre 
 

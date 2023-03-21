@@ -32,3 +32,7 @@ class LibroManager(models.Manager):
             categoria__id=categoria
         ).order_by('titulo')
     
+class CategoriaManager(models.Manager):
+    """managers para el modelo Categoria
+    
+    """
