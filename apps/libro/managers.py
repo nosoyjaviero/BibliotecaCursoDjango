@@ -36,6 +36,10 @@ class LibroManager(models.Manager):
         libro=self.get(id=libro_id)
         libro.autores.add(autor)
         return libro
+    def delete_autor_libro(self, libro_id, autor):
+        libro=self.get(id=libro_id)
+        libro.autores.remove(autor)
+        return libro
     
 class CategoriaManager(models.Manager):
     """managers para el modelo Categoria
