@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from .models import Libro
-from django.views.generic import ListView
+from django.views.generic import ListView,DetailView
 
 
 
@@ -26,3 +26,7 @@ class FiltrarporCategoria(ListView):
     
     def get_queryset(self):       
         return Libro.objects.Listar_libros_categoria('6')
+    
+class LibroDetailView(DetailView):
+    model =Libro
+    template_name="libro/detalle.html"
