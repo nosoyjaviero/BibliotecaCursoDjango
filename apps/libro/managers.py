@@ -40,5 +40,5 @@ class CategoriaManager(models.Manager):
         
         return self.filter(
             categoria_libro__autores__id=autor
-        )
+        ).distinct()
     

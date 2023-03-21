@@ -17,3 +17,20 @@ Aquí, el parámetro related_name se establece en 'libros', lo que significa que
 categoria = Categoria.objects.get(nombre='Ficción')
 libros_de_ficcion = categoria.libros.all()
 En resumen, related_name nos permite personalizar el nombre del atributo de relación inversa para hacer que el código sea más legible y expresivo.
+
+Managers 12.4 .distinct() para eliminar resultados duplicados.
+
+El método .distinct() en Python Django se utiliza en una consulta de base de datos para eliminar duplicados de los resultados de la consulta.
+Por ejemplo, si tenemos una tabla "Personas" con varias columnas, y realizamos una consulta que devuelve varias filas, algunas de las cuales tienen el mismo valor en una determinada columna, podemos usar .distinct() para eliminar las filas duplicadas basándonos en esa columna específica.
+
+Aquí hay un ejemplo:
+
+# Importamos el modelo "Persona"
+from miapp.models import Persona
+
+# Realizamos una consulta que devuelve todas las personas con el apellido "García"
+personas = Persona.objects.filter(apellido='García')
+
+# Agregamos .distinct() para eliminar las personas duplicadas en la consulta.
+personas_sin_duplicados = personas.distinct()
+En este ejemplo, si hay varias personas en la base de datos con el mismo apellido "García", .distinct() asegurará que solo se devuelva una vez cada una de esas personas.

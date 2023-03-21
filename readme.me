@@ -91,7 +91,17 @@ Categoria.objects.categoria_por_autor('1').
 Nota: Devuelve 
 >>> from apps.libro.models import *         
 >>> Categoria.objects.categoria_por_autor('1') 
+
+
 <QuerySet [<Categoria: 4 Ciencia>, <Categoria: 4 Ciencia>]>
 >>> Categoria.objects.categoria_por_autor('2') 
 <QuerySet [<Categoria: 6 Romance>, <Categoria: 6 Romance>, <Categoria: 6 Romance>]>
 >>>
+
+Notaras que se repitieron varia veces la misma respuesta.
+
+Para esto utilizamos el .distinct()
+para eliminar duplicados.
+
+Volvemos a ejecutar el shell y probamos
+Notaras que ya no se repite
