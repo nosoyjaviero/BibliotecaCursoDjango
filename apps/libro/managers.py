@@ -32,6 +32,10 @@ class LibroManager(models.Manager):
             categoria__id=categoria
         ).order_by('titulo')
         
+    def add_autor_libro(self, libro_id, autor):
+        libro=self.get(id=libro_id)
+        libro.autores.add(autor)
+        return libro
     
 class CategoriaManager(models.Manager):
     """managers para el modelo Categoria
