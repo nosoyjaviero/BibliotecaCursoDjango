@@ -1,0 +1,19 @@
+En Django, related_name es un parámetro que se utiliza al definir un campo de relación en un modelo. Este parámetro permite especificar el nombre del atributo que se utilizará para acceder a la relación inversa desde el modelo relacionado.
+
+Por defecto, Django genera un nombre para la relación inversa utilizando el nombre del modelo que contiene la relación y la palabra clave "set". Por ejemplo, si tenemos un modelo Libro con un campo de relación a Categoria, la relación inversa se llamaría libro_set.
+
+Sin embargo, podemos usar el parámetro related_name para cambiar este nombre a algo más significativo o legible. Por ejemplo, si queremos acceder a los libros de una categoría a través de un atributo llamado libros, podemos definir el campo de relación así:
+
+
+class Categoria(models.Model):
+    nombre = models.CharField(max_length=100)
+
+class Libro(models.Model):
+    titulo = models.CharField(max_length=200)
+    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, related_name='libros')
+    
+Aquí, el parámetro related_name se establece en 'libros', lo que significa que podemos acceder a los libros de una categoría así:
+
+categoria = Categoria.objects.get(nombre='Ficción')
+libros_de_ficcion = categoria.libros.all()
+En resumen, related_name nos permite personalizar el nombre del atributo de relación inversa para hacer que el código sea más legible y expresivo.
