@@ -34,3 +34,24 @@ personas = Persona.objects.filter(apellido='García')
 # Agregamos .distinct() para eliminar las personas duplicadas en la consulta.
 personas_sin_duplicados = personas.distinct()
 En este ejemplo, si hay varias personas en la base de datos con el mismo apellido "García", .distinct() asegurará que solo se devuelva una vez cada una de esas personas.
+
+
+Managers 14. Annotate. Cantidad de Libros de que tiene cada una categoria.
+
+    Aquí te presento un ejemplo de cómo usar annotate en Django:
+
+Supongamos que tenemos un modelo Libro con un campo categoria, y queremos obtener la cantidad de libros por categoría. Podemos usar annotate de la siguiente manera:
+
+
+from django.db import models
+
+class Libro(models.Model):
+    titulo = models.CharField(max_length=100)
+    autor = models.CharField(max_length=50)
+    categoria = models.CharField(max_length=50)
+
+# Obtener la cantidad de libros por categoría
+libros_por_categoria = Libro.objects.values('categoria').annotate(num_libros=models.Count('id'))
+
+
+En este ejemplo, usamos values para especificar que queremos agrupar los libros por la categoría y annotate para agregar una columna calculada num_libros que cuenta el número de libros en cada categoría. La consulta resultante nos devuelve una lista de diccionarios que incluye la categoría y la cantidad de libros en esa categoría.
