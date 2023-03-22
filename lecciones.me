@@ -55,3 +55,20 @@ libros_por_categoria = Libro.objects.values('categoria').annotate(num_libros=mod
 
 
 En este ejemplo, usamos values para especificar que queremos agrupar los libros por la categoría y annotate para agregar una columna calculada num_libros que cuenta el número de libros en cada categoría. La consulta resultante nos devuelve una lista de diccionarios que incluye la categoría y la cantidad de libros en esa categoría.
+
+Managers 15
+from django.db import models
+
+class Libro(models.Model):
+    titulo = models.CharField(max_length=100)
+    autor = models.CharField(max_length=50)
+    anio_publicacion = models.IntegerField()
+    prestado = models.BooleanField(default=False)
+    
+    def numeros_de_libros_prestados(self):
+        # Utilizamos el método "aggregate" para realizar una consulta que cuenta la cantidad de libros prestados.
+        # El resultado se almacena en la variable "resultados", que contiene un objeto con un campo "num_libros" que tiene la cantidad de libros prestados.
+        resultados = Libro.objects.aggregate(num_libros_prestados=Count('id', filter=Q(prestado=True)))
+        return resultados
+        
+En este ejemplo, la clase Libro tiene un método llamado numeros_de_libros_prestados que utiliza el método aggregate para realizar una consulta a la base de datos y obtener la cantidad de libros prestados. En la consulta se utiliza el parámetro filter de la función Count para filtrar los libros que están prestados (prestado=True). El resultado se almacena en un diccionario con un campo num_libros_prestados.

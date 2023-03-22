@@ -41,6 +41,23 @@ class LibroManager(models.Manager):
         libro.autores.remove(autor)
         return libro
     
+    
+    # Definimos un método llamado "numeros_De_Libros_Prestados" que recibe el parámetro "self" (representando la instancia de la clase que lo llama)
+    
+    def numeros_De_Libros_Prestados(self):
+        """Método que realiza una consulta a la base de datos para obtener la cantidad de libros prestados.
+        aggregate: devuelve un diccionario con el valor de la operacion aritmetica que hayamos especificado.
+
+        Returns:
+        dict: Un diccionario que contiene un campo "num_libros" con la cantidad de libros prestados.
+        """
+    # Usamos el método "aggregate" para realizar una consulta que cuenta la cantidad de libros prestados.
+    # El resultado se almacena en la variable "resultados", que contiene un objeto con un campo "num_libros" que tiene la cantidad de libros prestados.
+        resultados = self.aggregate(num_libros=Count('libro_prestamo'))
+    
+    # Retornamos el objeto "resultados".
+        return resultados
+    
 class CategoriaManager(models.Manager):
     """managers para el modelo Categoria
     

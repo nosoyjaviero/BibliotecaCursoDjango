@@ -113,3 +113,10 @@ Libro.objects.add_autor_libro('5','3')
 Un detailview podria hacer un metodo post?
 No puede. 
 Pero, si se puede ayudar a que lo ejecute y para hacer eso lo hacems con un Mixin
+
+
+ejecutar el shell y probamos
+from apps.libro.models import *         
+Libro.objects.numeros_De_Libros_Prestados() 
+>>> {'num_libros': 10}
+A diferencia del Annotate este devuelve un diccionario
