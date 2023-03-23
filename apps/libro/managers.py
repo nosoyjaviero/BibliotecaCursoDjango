@@ -69,23 +69,26 @@ class CategoriaManager(models.Manager):
         ).distinct()
         
     # Definimos un método llamado "listar_cantidad_de_libros_categoria" que recibe el parámetro "self" (representando la instancia de la clase que lo llama)
-def listar_cantidad_de_libros_categoria(self):
-    """Este método lista la cantidad de libros por una categoría.
-    Este metodo se puede hacer utilizando una consulta de  base de Datos inluso utilizando solo utilando pyhon. Pero django nos la pone mas facil, y no deja este codigo para poder esta consulta
+    def listar_cantidad_de_libros_categoria(self):
+        """Este método lista la cantidad de libros por una categoría.
+        Este metodo se puede hacer utilizando una consulta de  base de Datos inluso utilizando solo utilando pyhon. Pero django nos la pone mas facil, y no deja este codigo para poder esta consulta
 
-    Returns:
-    annotate: devuelve un QuerySet y ademas la operacion aritmetica que estemos realizando.Puede verse en: print(resultado, resultado.num_libros)
-    
-    resultado (objeto): El último objeto resultado obtenido.
-"""
-    # Se utiliza el método "annotate" para realizar una consulta que obtiene la cantidad de libros por categoría.
-    # El resultado se almacena en la variable "resultados", que contiene una lista de objetos con los campos de la clase y el número de libros por categoría.
-    resultados = self.annotate(num_libros=Count('categoria_libro'))
-    
-    # Se recorre la lista de "resultados" con un ciclo "for" para imprimir cada objeto y su respectiva cantidad de libros.
-    for resultado in resultados:
-        print('*'*10)
-        print(resultado, resultado.num_libros)
+        Returns:
+        annotate: devuelve un QuerySet y ademas la operacion aritmetica que estemos realizando.Puede verse en: print(resultado, resultado.num_libros)
+        
+        resultado (objeto): El último objeto resultado obtenido.
+    """
+        # Se utiliza el método "annotate" para realizar una consulta que obtiene la cantidad de libros por categoría.
+        # El resultado se almacena en la variable "resultados", que contiene una lista de objetos con los campos de la clase y el número de libros por categoría.
+        resultados = self.annotate(
+            num_libros=Count('categoria_libro')
+            )
+        
+        
+        # Se recorre la lista de "resultados" con un ciclo "for" para imprimir cada objeto y su respectiva cantidad de libros.
+        for resultado in resultados:
+            print('*'*10)
+            print(resultado, resultado.num_libros)
     
     # Retorna el último resultado obtenido.
-    return resultado
+        return resultado

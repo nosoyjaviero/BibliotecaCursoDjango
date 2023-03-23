@@ -121,6 +121,8 @@ Libro.objects.numeros_De_Libros_Prestados()
 >>> {'num_libros': 10}
 A diferencia del Annotate este devuelve un diccionario
 
+from apps.libro.models import *
+Categoria.objects.listar_cantidad_de_libros_categoria()
 
 ejecutar el shell y probamos
 from apps.lector.models import *   
