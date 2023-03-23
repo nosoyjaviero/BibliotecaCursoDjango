@@ -21,3 +21,4 @@ class PrestamoManager(models.Manager):
         return resultados
     
     
+    

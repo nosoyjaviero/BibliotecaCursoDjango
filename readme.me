@@ -130,3 +130,14 @@ Prestamo.objects.promedio_de_edad_en_libro()
 {'promedio_edad': 29.666666666666668, 'suma_edades': 89}
 
 Podemos observar que le agregamos un nuevo valor al diccionario que es 'suma_edades': 89
+
+Managers 16.1 
+
+Nos piden el requerimiento:
+Cantidad de veces que esta prestado el mismo libro:
+
+
+Para poder obtener ese requerimento, primero debemos tener entendido que lo resolveremos con annotate. Annotate toma de referencia automaticamente el id del modelo, sin que se lo demos. En este caso Libro. Pregunta cuantas veces se repite el id de cada libro en el modelo Prestamo. 
+
+from apps.libro.models import *
+Libro.objects.Cantidad_de_mismo_libro_prestado()

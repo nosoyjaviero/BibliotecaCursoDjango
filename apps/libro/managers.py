@@ -58,6 +58,22 @@ class LibroManager(models.Manager):
     # Retornamos el objeto "resultados".
         return resultados
     
+    def Cantidad_de_mismo_libro_prestado(self):
+        """
+        
+        Returns:
+        
+        """
+        resultados=  self.annotate(
+            num_libros=Count('libro_prestamo')
+            )
+        for resultado in resultados:
+            print('*'*10)
+            print(resultado, resultado.num_libros)
+    
+         
+        return resultados
+    
 class CategoriaManager(models.Manager):
     """managers para el modelo Categoria
     
