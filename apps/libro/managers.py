@@ -107,4 +107,4 @@ class CategoriaManager(models.Manager):
             print(resultado, resultado.num_libros)
     
     # Retorna el último resultado obtenido.
-        return resultado
+        return resultados

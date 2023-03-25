@@ -20,5 +20,28 @@ class PrestamoManager(models.Manager):
         )
         return resultados
     
+    def Cantidad_de_mismo_libro_prestado(self):
+        """
+        Lo que hace es contar cuántas veces se ha prestado cada libro. Agrupa los préstamos por el campo libro, que es la llave foránea que hace referencia al modelo Libro, y cuenta cuántas veces aparece cada valor en esa columna.
+        
+        Esto se lea asi. 
+        Dado el modelo de Prestamo, esta función busca los libro que encuentran en prestamo, y luego cuenta cuántas veces se ha prestado cada libro en prestamo y devuelve un queryset que contiene con los libros que aprecieron y el número de veces que ha sido prestado. 
+        Returns:
+                 self.values('libro') Nos devuelve los libros que enconntro en prestamo
+                 
+                 .annotate
+                 La cantidad de veces que aparecio en prestamo
+        """
+        
+        
+        # Por asi decirlo, agrupa los libros que aparecen en el registro de prestamo y dice la cantidad de veces que aparecen.
+        resultados=self.values('libro').annotate(
+            num_libros_prestados=Count('libro')
+            )
+        for resultado in resultados:
+            print('*'*10)
+            print(resultado, resultado['num_libros_prestados'])
     
+         
+        return resultados
     

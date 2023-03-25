@@ -72,3 +72,13 @@ class Libro(models.Model):
         return resultados
         
 En este ejemplo, la clase Libro tiene un método llamado numeros_de_libros_prestados que utiliza el método aggregate para realizar una consulta a la base de datos y obtener la cantidad de libros prestados. En la consulta se utiliza el parámetro filter de la función Count para filtrar los libros que están prestados (prestado=True). El resultado se almacena en un diccionario con un campo num_libros_prestados.
+
+Managers 16.2
+
+La función "values" en Django SE UTILIZA PARA ESPECIFICAR LOS CAMPOS QUE SE QUIEREN INCLUIR en una consulta a la base de datos. Esta función devuelve un QuerySet que contiene los valores de los campos especificados.
+
+El uso de "self.values" en Django implica que se está trabajando con un modelo definido en Django y se está haciendo referencia a una instancia de ese modelo (self). Al llamar a la función "values" en esta instancia, se crea una consulta a la base de datos que devuelve los valores de los campos especificados.
+
+Por ejemplo, si tenemos un modelo "Persona" con campos como "nombre", "apellido", "edad", etc., podemos hacer una consulta para obtener solamente los nombres y apellidos de todas las personas en la base de datos utilizando "Persona.objects.values('nombre', 'apellido')".
+
+De esta forma, la función "values" en Django es útil cuando queremos hacer una consulta a la base de datos para obtener solamente algunos campos específicos de un modelo y no todos los campos. Esto puede ser útil para reducir la cantidad de datos que se están recuperando de la base de datos y mejorar el rendimiento de la aplicación.
