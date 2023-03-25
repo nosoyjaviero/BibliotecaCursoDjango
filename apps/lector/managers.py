@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models import Q, Count, Avg, Sum
+from django.db.models.functions import Lower
 
 class PrestamoManager(models.Manager):
     
@@ -36,7 +37,8 @@ class PrestamoManager(models.Manager):
         
         # Por asi decirlo, agrupa los libros que aparecen en el registro de prestamo y dice la cantidad de veces que aparecen.
         resultados=self.values('libro').annotate(
-            num_libros_prestados=Count('libro')
+            num_libros_prestados=Count('libro'),
+            titulo= Lower('libro__titulo')
             )
         for resultado in resultados:
             print('*'*10)
