@@ -148,3 +148,14 @@ ejecutar el shell y probamos
 >>> from apps.lector.models import *
 >>> Prestamo.objects.Cantidad_de_mismo_libro_prestado()
 
+ir a SQLSHELL, accedemos
+
+entramos a nuestra base de datos
+ejecutamos lo comandos
+\c dbbiblioteca
+dbbiblioteca=> CREATE EXTENSION pg_trgm;
+dbbiblioteca=> CREATE INDEX libro_titulo_idx ON libro_libro USING GIN(titulo gin_trgm_ops);
+
+libro_titulo_idx <- Nombre del Indice
+libro_libro <- NombreApp_NombreTABLA
+titulo <- Sobre que atributo
