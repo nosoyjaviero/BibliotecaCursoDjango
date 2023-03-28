@@ -29,7 +29,7 @@ class LibroManager(models.Manager):
     
     def buscar_libros_con_Trigram(self, kword):
         libros= self.filter(
-            titulo__icontains=kword
+            titulo__trigram_similar=kword
         )
         return libros
     
