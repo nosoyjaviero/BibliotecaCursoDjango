@@ -1,6 +1,7 @@
 import datetime
 from django.db import models
 from django.db.models import Q, Count
+from django.contrib.postgres.search import TrigramSimilarity
 
 class LibroManager(models.Manager):
     """managers para el moelo libro
@@ -23,6 +24,12 @@ class LibroManager(models.Manager):
         libros= self.filter(
             titulo__icontains=kword,
             fecha_lanzamiento__range=(date1,date2)
+        )
+        return libros
+    
+    def buscar_libros_con_Trigram(self, kword):
+        libros= self.filter(
+            titulo__icontains=kword
         )
         return libros
     
