@@ -27,7 +27,7 @@ class LibrosListView_conTrigram(ListView):
     def get_queryset(self):        
         palabra= self.request.GET.get( "kword", "")
         
-        return Libro.objects.buscar_libros(palabra)
+        return Libro.objects.buscar_libros_con_Trigram(palabra)
         
 class FiltrarporCategoria(ListView):
     template_name = "libro/lista2.html"

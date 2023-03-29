@@ -27,12 +27,35 @@ class LibroManager(models.Manager):
         )
         return libros
     
-    def buscar_libros_con_Trigram(self, kword):
-        libros= self.filter(
-            titulo__trigram_similar=kword
-        )
-        return libros
-    
+    def buscar_libros_con_Trigram(self, kword=None):
+        """
+        Buscar libros con títulos similares usando trigramas.
+        
+        Este método utiliza la búsqueda por trigramas para encontrar libros con títulos 
+        similares en la base de datos. Si no se proporciona una palabra clave, 
+        se devuelven todos los libros.
+        Para usar esta seccion debe instalar tigramas con postgress
+        
+        Args:
+            kword (str, optional): Palabra clave para buscar en los títulos de los libros. 
+                                    Defaults to None.
+        Returns:
+            QuerySet: Un QuerySet de objetos Libro con títulos similares a la palabra
+                    clave ingresada o todos los libros si kword es None.
+        Raises:
+            ValueError: Si la palabra clave tiene menos de 3 caracteres.
+        """
+        if kword:
+            if kword is not None and len(kword) < 3:
+                raise ValueError("La palabra clave debe tener al menos 3 caracteres.")
+            else:
+                libros = self.filter(
+                    titulo__trigram_similar=kword
+                )
+                return libros
+        else:
+            return self.all()
+        
     def Listar_libros_categoria(self, categoria):
         
         return self.filter(
