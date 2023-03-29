@@ -19,6 +19,15 @@ class LibrosListView(ListView):
             return Libro.objects.buscar_libros2(palabra,fecha1,fecha2)
         else:
             return Libro.objects.buscar_libros(palabra)
+
+class LibrosListView_conTrigram(ListView):
+    template_name = "libro/lista_libros.html"
+    context_object_name= 'lista_libros'
+    
+    def get_queryset(self):        
+        palabra= self.request.GET.get( "kword", "")
+        
+        return Libro.objects.buscar_libros(palabra)
         
 class FiltrarporCategoria(ListView):
     template_name = "libro/lista2.html"
