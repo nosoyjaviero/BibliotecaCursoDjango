@@ -28,11 +28,22 @@ class LibroManager(models.Manager):
         return libros
     
     def buscar_libros_con_Trigram(self, kword):
-        libros= self.filter(
-            titulo__trigram_similar=kword
-        )
-        return libros
-    
+        """_summary_
+
+        Args:
+            kword (_type_): _description_
+
+        Returns:
+            _type_: _description_
+        """
+        if kword:
+            libros= self.filter(
+                titulo__trigram_similar=kword
+            )
+            return libros
+        else:
+            return self.all()
+        
     def Listar_libros_categoria(self, categoria):
         
         return self.filter(
