@@ -26,5 +26,10 @@ class Libro(models.Model):
     
     objects= LibroManager()
     
+    class Meta:
+        verbose_name=''
+        verbose_name_plural=''
+        ordering = ['titulo','fecha']
+    
     def __str__(self):
         return str(self.id)+" - "+ self.titulo

@@ -82,3 +82,17 @@ El uso de "self.values" en Django implica que se está trabajando con un modelo 
 Por ejemplo, si tenemos un modelo "Persona" con campos como "nombre", "apellido", "edad", etc., podemos hacer una consulta para obtener solamente los nombres y apellidos de todas las personas en la base de datos utilizando "Persona.objects.values('nombre', 'apellido')".
 
 De esta forma, la función "values" en Django es útil cuando queremos hacer una consulta a la base de datos para obtener solamente algunos campos específicos de un modelo y no todos los campos. Esto puede ser útil para reducir la cantidad de datos que se están recuperando de la base de datos y mejorar el rendimiento de la aplicación.
+
+
+
+La clase Meta es una clase interna que se utiliza en los modelos de Django para definir metadatos adicionales para el modelo en cuestión. La clase Meta se define dentro de la clase del modelo y se utiliza para configurar diversas opciones que se aplican al modelo en su conjunto.
+
+Algunas de las opciones que se pueden definir dentro de la clase Meta son:
+
+ordering: define el orden predeterminado en el que se deben recuperar las instancias del modelo.
+db_table: define el nombre de la tabla de la base de datos que se utilizará para almacenar los datos del modelo.
+verbose_name y verbose_name_plural: proporcionan nombres humanizados para el modelo, tanto en singular como en plural, respectivamente.
+unique_together: especifica que ciertos campos deben ser únicos en combinación, en lugar de únicos por sí solos.
+permissions: define los permisos que se aplican a este modelo para controlar el acceso a él.
+abstract: indica si el modelo es abstracto o no. Los modelos abstractos no se pueden instanciar directamente, sino que se utilizan como plantillas para crear otros modelos.
+La clase Meta es una herramienta poderosa que permite a los desarrolladores de Django personalizar la forma en que se comportan los modelos en la base de datos y en la interfaz de usuario.
